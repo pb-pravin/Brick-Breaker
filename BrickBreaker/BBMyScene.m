@@ -12,6 +12,7 @@
 {
     SKSpriteNode *_paddle;
     CGPoint _touchLocation;
+    CGFloat _ballSpeed;
 }
 
 
@@ -43,6 +44,10 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _paddle.physicsBody.categoryBitMask = kPaddleCategory;
         [self addChild:_paddle];
         
+        // Set initial values.
+        _ballSpeed = 250.0;
+        
+        
     }
     return self;
 }
@@ -65,6 +70,36 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
+    
+    SKPhysicsBody *firstBody;
+    SKPhysicsBody *secondBody;
+    
+    if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    } else {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
+    
+    if (firstBody.categoryBitMask == kBallCategory && secondBody.categoryBitMask == kPaddleCategory) {
+        if (firstBody.node.position.y > secondBody.node.position.y) {
+            // Get contact point in paddle coordinates.
+            CGPoint pointInPaddle = [secondBody.node convertPoint:contact.contactPoint fromNode:self];
+            // Get contact position as a percentage of the paddle's width.
+            CGFloat x = (pointInPaddle.x + secondBody.node.frame.size.width * 0.5) / secondBody.node.frame.size.width;
+            // Cap percentage and flip it.
+            CGFloat multiplier = 1.0 - fmaxf(fminf(x, 1.0),0.0);
+            // Caclulate angle based on ball position in paddle.
+            CGFloat angle = (M_PI_2 * multiplier) + M_PI_4;
+            // Convert angle to vector.
+            CGVector direction = CGVectorMake(cosf(angle), sinf(angle));
+            // Set ball's velocity based on direction and speed.
+            firstBody.velocity = CGVectorMake(direction.dx * _ballSpeed, direction.dy * _ballSpeed);
+        }
+    }
+    
+    
     
 }
 
