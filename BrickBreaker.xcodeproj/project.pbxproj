@@ -17,13 +17,15 @@
 		5775049D18FE8B380010AC83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5775049B18FE8B380010AC83 /* Main.storyboard */; };
 		577504A018FE8B380010AC83 /* BBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5775049F18FE8B380010AC83 /* BBViewController.m */; };
 		577504A318FE8B380010AC83 /* BBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 577504A218FE8B380010AC83 /* BBMyScene.m */; };
-		577504A518FE8B380010AC83 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504A418FE8B380010AC83 /* Spaceship.png */; };
 		577504A718FE8B380010AC83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 577504A618FE8B380010AC83 /* Images.xcassets */; };
 		577504AE18FE8B380010AC83 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577504AD18FE8B380010AC83 /* XCTest.framework */; };
 		577504AF18FE8B380010AC83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775048718FE8B370010AC83 /* Foundation.framework */; };
 		577504B018FE8B380010AC83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775048B18FE8B370010AC83 /* UIKit.framework */; };
 		577504B818FE8B380010AC83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 577504B618FE8B380010AC83 /* InfoPlist.strings */; };
 		577504BA18FE8B380010AC83 /* BrickBreakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 577504B918FE8B380010AC83 /* BrickBreakerTests.m */; };
+		577504C718FE8B770010AC83 /* BallBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504C418FE8B770010AC83 /* BallBlue@2x.png */; };
+		577504C818FE8B770010AC83 /* BrickGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504C518FE8B770010AC83 /* BrickGreen@2x.png */; };
+		577504C918FE8B770010AC83 /* Paddle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504C618FE8B770010AC83 /* Paddle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,13 +55,15 @@
 		5775049F18FE8B380010AC83 /* BBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBViewController.m; sourceTree = "<group>"; };
 		577504A118FE8B380010AC83 /* BBMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyScene.h; sourceTree = "<group>"; };
 		577504A218FE8B380010AC83 /* BBMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyScene.m; sourceTree = "<group>"; };
-		577504A418FE8B380010AC83 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		577504A618FE8B380010AC83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		577504AC18FE8B380010AC83 /* BrickBreakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrickBreakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		577504AD18FE8B380010AC83 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		577504B518FE8B380010AC83 /* BrickBreakerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BrickBreakerTests-Info.plist"; sourceTree = "<group>"; };
 		577504B718FE8B380010AC83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		577504B918FE8B380010AC83 /* BrickBreakerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickBreakerTests.m; sourceTree = "<group>"; };
+		577504C418FE8B770010AC83 /* BallBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BallBlue@2x.png"; sourceTree = "<group>"; };
+		577504C518FE8B770010AC83 /* BrickGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrickGreen@2x.png"; sourceTree = "<group>"; };
+		577504C618FE8B770010AC83 /* Paddle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Paddle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 		5775048F18FE8B380010AC83 /* BrickBreaker */ = {
 			isa = PBXGroup;
 			children = (
+				577504C318FE8B770010AC83 /* Graphics */,
 				5775049818FE8B380010AC83 /* BBAppDelegate.h */,
 				5775049918FE8B380010AC83 /* BBAppDelegate.m */,
 				5775049B18FE8B380010AC83 /* Main.storyboard */,
@@ -128,7 +133,6 @@
 				5775049F18FE8B380010AC83 /* BBViewController.m */,
 				577504A118FE8B380010AC83 /* BBMyScene.h */,
 				577504A218FE8B380010AC83 /* BBMyScene.m */,
-				577504A418FE8B380010AC83 /* Spaceship.png */,
 				577504A618FE8B380010AC83 /* Images.xcassets */,
 				5775049018FE8B380010AC83 /* Supporting Files */,
 			);
@@ -162,6 +166,16 @@
 				577504B618FE8B380010AC83 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		577504C318FE8B770010AC83 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				577504C418FE8B770010AC83 /* BallBlue@2x.png */,
+				577504C518FE8B770010AC83 /* BrickGreen@2x.png */,
+				577504C618FE8B770010AC83 /* Paddle@2x.png */,
+			);
+			path = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,10 +255,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577504C818FE8B770010AC83 /* BrickGreen@2x.png in Resources */,
 				5775049418FE8B380010AC83 /* InfoPlist.strings in Resources */,
+				577504C918FE8B770010AC83 /* Paddle@2x.png in Resources */,
 				577504A718FE8B380010AC83 /* Images.xcassets in Resources */,
-				577504A518FE8B380010AC83 /* Spaceship.png in Resources */,
 				5775049D18FE8B380010AC83 /* Main.storyboard in Resources */,
+				577504C718FE8B770010AC83 /* BallBlue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

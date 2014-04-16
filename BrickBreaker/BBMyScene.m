@@ -9,40 +9,41 @@
 #import "BBMyScene.h"
 
 @implementation BBMyScene
+{
+    SKSpriteNode *_paddle;
+    CGPoint _touchLocation;
+}
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
+        _paddle.position = CGPointMake(self.size.width * 0.5, 90);
+        [self addChild:_paddle];
         
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
-        
-        [self addChild:myLabel];
     }
     return self;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    
     for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
+        _touchLocation = [touch locationInNode:self];
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch *touch in touches) {
+        // Calculate how far touch has moved on x axis.
+        CGFloat xMovement = [touch locationInNode:self].x - _touchLocation.x;
+        // Move paddle distance of touch.
+        _paddle.position = CGPointMake(_paddle.position.x + xMovement, _paddle.position.y);
         
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+        _touchLocation = [touch locationInNode:self];
     }
 }
 
