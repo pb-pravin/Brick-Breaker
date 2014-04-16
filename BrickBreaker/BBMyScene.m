@@ -14,6 +14,10 @@
     CGPoint _touchLocation;
 }
 
+
+static const uint32_t kBallCategory   = 0x1 << 0;
+static const uint32_t kPaddleCategory = 0x1 << 1;
+
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
@@ -22,6 +26,8 @@
 
         // Turn off gravity.
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
+        // Set contact delgate.
+        self.physicsWorld.contactDelegate = self;
         
         // Setup edge.
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
@@ -32,6 +38,9 @@
         
         _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
         _paddle.position = CGPointMake(self.size.width * 0.5, 90);
+        _paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_paddle.size];
+        _paddle.physicsBody.dynamic = NO;
+        _paddle.physicsBody.categoryBitMask = kPaddleCategory;
         [self addChild:_paddle];
         
     }
@@ -48,8 +57,15 @@
     ball.physicsBody.linearDamping = 0.0;
     ball.physicsBody.restitution = 1.0;
     ball.physicsBody.velocity = velocity;
+    ball.physicsBody.categoryBitMask = kBallCategory;
+    ball.physicsBody.contactTestBitMask = kPaddleCategory;
     [self addChild:ball];
     return ball;
+}
+
+-(void)didBeginContact:(SKPhysicsContact *)contact
+{
+    
 }
 
 
