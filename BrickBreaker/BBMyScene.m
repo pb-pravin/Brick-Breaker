@@ -20,6 +20,15 @@
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
 
+        // Turn off gravity.
+        self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
+        
+        // Setup edge.
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+        
+        [self createBallWithLocation:CGPointMake(size.width * 0.5, size.height * 0.5)
+                         andVelocity:CGVectorMake(40, 180)];
+        
         
         _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
         _paddle.position = CGPointMake(self.size.width * 0.5, 90);
@@ -28,6 +37,21 @@
     }
     return self;
 }
+
+-(SKSpriteNode*)createBallWithLocation:(CGPoint)position andVelocity:(CGVector)velocity
+{
+    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"BallBlue"];
+    ball.name = @"ball";
+    ball.position = position;
+    ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.size.width * 0.5];
+    ball.physicsBody.friction = 0.0;
+    ball.physicsBody.linearDamping = 0.0;
+    ball.physicsBody.restitution = 1.0;
+    ball.physicsBody.velocity = velocity;
+    [self addChild:ball];
+    return ball;
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
@@ -63,3 +87,20 @@
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
