@@ -13,6 +13,7 @@
     SKSpriteNode *_paddle;
     CGPoint _touchLocation;
     CGFloat _ballSpeed;
+    SKNode *_brickLayer;
 }
 
 
@@ -35,6 +36,21 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         
         [self createBallWithLocation:CGPointMake(size.width * 0.5, size.height * 0.5)
                          andVelocity:CGVectorMake(40, 180)];
+        
+        // Setup brick layer.
+        _brickLayer = [SKNode node];
+        _brickLayer.position = CGPointMake(0, self.size.height);
+        [self addChild:_brickLayer];
+        
+        // Add some bricks.
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 6; col++) {
+                SKSpriteNode *brick = [SKSpriteNode spriteNodeWithImageNamed:@"BrickGreen"];
+                brick.position = CGPointMake(2 + (brick.size.width * 0.5) + ((brick.size.width + 3) * col)
+                                             , -(2 + (brick.size.height * 0.5) + ((brick.size.height + 3) * row)));
+                [_brickLayer addChild:brick];
+            }
+        }
         
         
         _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
