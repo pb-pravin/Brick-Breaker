@@ -43,22 +43,8 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _brickLayer.position = CGPointMake(0, self.size.height);
         [self addChild:_brickLayer];
         
-        // Add some bricks.
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 6; col++) {
-                BBBrick *brick;
-                if (row == 4) {
-                    brick = [[BBBrick alloc] initWithType:Blue];
-                }
-                else {
-                    brick = [[BBBrick alloc] initWithType:Green];
-                }
-                brick.position = CGPointMake(2 + (brick.size.width * 0.5) + ((brick.size.width + 3) * col)
-                                             , -(2 + (brick.size.height * 0.5) + ((brick.size.height + 3) * row)));
-                
-                [_brickLayer addChild:brick];
-            }
-        }
+        // Load level.
+        [self loadLevel:0];
         
         
         _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
@@ -76,6 +62,48 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     return self;
 }
 
+
+-(void)loadLevel:(int)levelNumber
+{
+    NSArray *level = nil;
+    
+    switch (levelNumber) {
+        case 0:
+            level = @[@[@1,@1,@1,@1,@1,@1],
+                      @[@1,@1,@1,@1,@1,@1],
+                      @[@0,@0,@0,@0,@0,@0],
+                      @[@0,@0,@0,@0,@0,@0],
+                      @[@2,@2,@2,@2,@2,@2]];
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    int row = 0;
+    int col = 0;
+    for (NSArray *rowBricks in level) {
+        col = 0;
+        
+        for (NSNumber *brickType in rowBricks) {
+            if ([brickType intValue] > 0) {
+                BBBrick *brick = [[BBBrick alloc] initWithType:(BrickType)[brickType intValue]];
+                if (brick) {
+                    brick.position = CGPointMake(2 + (brick.size.width * 0.5) + ((brick.size.width + 3) * col)
+                                                 , -(2 + (brick.size.height * 0.5) + ((brick.size.height + 3) * row)));
+                    
+                    [_brickLayer addChild:brick];
+                }
+            }
+            col++;
+        }
+        row++;
+    }
+}
+
+
+
 -(SKSpriteNode*)createBallWithLocation:(CGPoint)position andVelocity:(CGVector)velocity
 {
     SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"BallBlue"];
@@ -91,6 +119,7 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     [self addChild:ball];
     return ball;
 }
+
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
@@ -132,7 +161,6 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     
     
 }
-
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
