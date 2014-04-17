@@ -7,6 +7,7 @@
 //
 
 #import "BBMyScene.h"
+#import "BBBrick.h"
 
 @implementation BBMyScene
 {
@@ -19,7 +20,6 @@
 
 static const uint32_t kBallCategory   = 0x1 << 0;
 static const uint32_t kPaddleCategory = 0x1 << 1;
-static const uint32_t kBrickCategory  = 0x1 << 2;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -46,12 +46,9 @@ static const uint32_t kBrickCategory  = 0x1 << 2;
         // Add some bricks.
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 6; col++) {
-                SKSpriteNode *brick = [SKSpriteNode spriteNodeWithImageNamed:@"BrickGreen"];
+                BBBrick *brick = [[BBBrick alloc] initWithType:Green];
                 brick.position = CGPointMake(2 + (brick.size.width * 0.5) + ((brick.size.width + 3) * col)
                                              , -(2 + (brick.size.height * 0.5) + ((brick.size.height + 3) * row)));
-                brick.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:brick.size];
-                brick.physicsBody.categoryBitMask = kBrickCategory;
-                brick.physicsBody.dynamic = NO;
                 
                 [_brickLayer addChild:brick];
             }

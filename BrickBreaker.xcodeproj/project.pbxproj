@@ -26,6 +26,8 @@
 		577504C718FE8B770010AC83 /* BallBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504C418FE8B770010AC83 /* BallBlue@2x.png */; };
 		577504C818FE8B770010AC83 /* BrickGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504C518FE8B770010AC83 /* BrickGreen@2x.png */; };
 		577504C918FE8B770010AC83 /* Paddle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504C618FE8B770010AC83 /* Paddle@2x.png */; };
+		577504D018FFE9D80010AC83 /* BrickBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */; };
+		577504D318FFEA270010AC83 /* BBBrick.m in Sources */ = {isa = PBXBuildFile; fileRef = 577504D218FFEA270010AC83 /* BBBrick.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,9 @@
 		577504C418FE8B770010AC83 /* BallBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BallBlue@2x.png"; sourceTree = "<group>"; };
 		577504C518FE8B770010AC83 /* BrickGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrickGreen@2x.png"; sourceTree = "<group>"; };
 		577504C618FE8B770010AC83 /* Paddle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Paddle@2x.png"; sourceTree = "<group>"; };
+		577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrickBlue@2x.png"; sourceTree = "<group>"; };
+		577504D118FFEA270010AC83 /* BBBrick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBrick.h; sourceTree = "<group>"; };
+		577504D218FFEA270010AC83 /* BBBrick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBrick.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,8 @@
 				5775049B18FE8B380010AC83 /* Main.storyboard */,
 				5775049E18FE8B380010AC83 /* BBViewController.h */,
 				5775049F18FE8B380010AC83 /* BBViewController.m */,
+				577504D118FFEA270010AC83 /* BBBrick.h */,
+				577504D218FFEA270010AC83 /* BBBrick.m */,
 				577504A118FE8B380010AC83 /* BBMyScene.h */,
 				577504A218FE8B380010AC83 /* BBMyScene.m */,
 				577504A618FE8B380010AC83 /* Images.xcassets */,
@@ -171,6 +178,7 @@
 		577504C318FE8B770010AC83 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */,
 				577504C418FE8B770010AC83 /* BallBlue@2x.png */,
 				577504C518FE8B770010AC83 /* BrickGreen@2x.png */,
 				577504C618FE8B770010AC83 /* Paddle@2x.png */,
@@ -260,6 +268,7 @@
 				577504C918FE8B770010AC83 /* Paddle@2x.png in Resources */,
 				577504A718FE8B380010AC83 /* Images.xcassets in Resources */,
 				5775049D18FE8B380010AC83 /* Main.storyboard in Resources */,
+				577504D018FFE9D80010AC83 /* BrickBlue@2x.png in Resources */,
 				577504C718FE8B770010AC83 /* BallBlue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +291,7 @@
 				577504A018FE8B380010AC83 /* BBViewController.m in Sources */,
 				5775049A18FE8B380010AC83 /* BBAppDelegate.m in Sources */,
 				577504A318FE8B380010AC83 /* BBMyScene.m in Sources */,
+				577504D318FFEA270010AC83 /* BBBrick.m in Sources */,
 				5775049618FE8B380010AC83 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
