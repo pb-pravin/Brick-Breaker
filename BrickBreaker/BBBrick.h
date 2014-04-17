@@ -21,6 +21,7 @@ static const uint32_t kBrickCategory = 0x1 << 2;
 @property (nonatomic) BrickType type;
 
 -(instancetype)initWithType:(BrickType)type;
+-(void)hit;
 
 
 @end

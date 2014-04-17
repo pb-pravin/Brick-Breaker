@@ -46,7 +46,13 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         // Add some bricks.
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 6; col++) {
-                BBBrick *brick = [[BBBrick alloc] initWithType:Green];
+                BBBrick *brick;
+                if (row == 4) {
+                    brick = [[BBBrick alloc] initWithType:Blue];
+                }
+                else {
+                    brick = [[BBBrick alloc] initWithType:Green];
+                }
                 brick.position = CGPointMake(2 + (brick.size.width * 0.5) + ((brick.size.width + 3) * col)
                                              , -(2 + (brick.size.height * 0.5) + ((brick.size.height + 3) * row)));
                 
@@ -101,7 +107,9 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     }
     
     if (firstBody.categoryBitMask == kBallCategory && secondBody.categoryBitMask == kBrickCategory) {
-        [secondBody.node runAction:[SKAction removeFromParent]];
+        if ([secondBody.node respondsToSelector:@selector(hit)]) {
+            [secondBody.node performSelector:@selector(hit)];
+        }
     }
     
     if (firstBody.categoryBitMask == kBallCategory && secondBody.categoryBitMask == kPaddleCategory) {
