@@ -9,6 +9,12 @@
 #import "BBMyScene.h"
 #import "BBBrick.h"
 
+@interface BBMyScene()
+
+@property (nonatomic) int lives;
+
+@end
+
 @implementation BBMyScene
 {
     SKSpriteNode *_paddle;
@@ -66,6 +72,7 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _ballSpeed = 250.0;
         _ballReleased = NO;
         _currentLevel = 0;
+        self.lives = 1;
         
         [self loadLevel:_currentLevel];
         [self newBall];
@@ -86,6 +93,19 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     [_paddle addChild:ball];
     _ballReleased = NO;
     _paddle.position = CGPointMake(self.size.width * 0.5, _paddle.position.y);
+}
+
+-(void)setLives:(int)lives
+{
+    _lives = lives;
+    for (NSUInteger i = 0; i < _hearts.count; i++) {
+        SKSpriteNode *heart = (SKSpriteNode*)[_hearts objectAtIndex:i];
+        if (lives > i) {
+            heart.texture = [SKTexture textureWithImageNamed:@"HeartFull"];
+        } else {
+            heart.texture = [SKTexture textureWithImageNamed:@"HeartEmpty"];
+        }
+    }
 }
 
 
