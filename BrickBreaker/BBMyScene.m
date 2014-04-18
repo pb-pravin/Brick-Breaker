@@ -61,7 +61,6 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _ballSpeed = 250.0;
         _ballReleased = NO;
         
-        
     }
     return self;
 }
@@ -224,6 +223,22 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 }
+
+
+-(BOOL)isLevelComplete
+{
+    // Look for remaining bricks that are not indestrucitble.
+    for (SKNode *node in _brickLayer.children) {
+        if ([node isKindOfClass:[BBBrick class]]) {
+            if (!((BBBrick*)node).indestructible) {
+                return NO;
+            }
+        }
+    }
+    // Couldn't find any non-indestructible bricks
+    return YES;
+}
+
 
 @end
 
