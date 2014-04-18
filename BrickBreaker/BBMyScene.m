@@ -42,7 +42,7 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         [self addChild:_brickLayer];
         
         // Load level.
-        [self loadLevel:0];
+        [self loadLevel:1];
         
         
         _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
@@ -74,10 +74,28 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     switch (levelNumber) {
         case 0:
             level = @[@[@1,@1,@1,@1,@1,@1],
-                      @[@1,@1,@1,@1,@1,@1],
+                      @[@0,@1,@1,@1,@1,@0],
                       @[@0,@0,@0,@0,@0,@0],
                       @[@0,@0,@0,@0,@0,@0],
-                      @[@2,@2,@3,@3,@2,@2]];
+                      @[@0,@2,@2,@2,@2,@0]];
+            break;
+            
+        case 1:
+            level = @[@[@1,@1,@2,@2,@1,@1],
+                      @[@2,@2,@0,@0,@2,@2],
+                      @[@2,@0,@0,@0,@0,@2],
+                      @[@0,@0,@1,@1,@0,@0],
+                      @[@1,@0,@1,@1,@0,@1],
+                      @[@1,@1,@3,@3,@1,@1]];
+            break;
+            
+        case 2:
+            level = @[@[@1,@0,@1,@1,@0,@1],
+                      @[@1,@0,@1,@1,@0,@1],
+                      @[@0,@0,@3,@3,@0,@0],
+                      @[@2,@0,@0,@0,@0,@2],
+                      @[@0,@0,@1,@1,@0,@0],
+                      @[@3,@2,@1,@1,@2,@3]];
             break;
             
         default:
