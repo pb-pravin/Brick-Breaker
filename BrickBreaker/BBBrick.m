@@ -21,6 +21,9 @@
         case Blue:
             self = [super initWithImageNamed:@"BrickBlue"];
             break;
+        case Grey:
+            self = [super initWithImageNamed:@"BrickGrey"];
+            break;
         default:
             self = nil;
             break;
@@ -31,6 +34,7 @@
         self.physicsBody.categoryBitMask = kBrickCategory;
         self.physicsBody.dynamic = NO;
         self.type = type;
+        self.indestructible = (type == Grey);
     }
     
     return self;
@@ -49,6 +53,7 @@
             self.type = Green;
             break;
         default:
+            // Grey bricks are indestructible.
             break;
     }
 }

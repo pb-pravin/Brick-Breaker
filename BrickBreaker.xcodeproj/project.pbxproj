@@ -28,6 +28,7 @@
 		577504C918FE8B770010AC83 /* Paddle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504C618FE8B770010AC83 /* Paddle@2x.png */; };
 		577504D018FFE9D80010AC83 /* BrickBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */; };
 		577504D318FFEA270010AC83 /* BBBrick.m in Sources */ = {isa = PBXBuildFile; fileRef = 577504D218FFEA270010AC83 /* BBBrick.m */; };
+		57B4DA9D19011BBF007373F1 /* BrickGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B4DA9C19011BBF007373F1 /* BrickGrey@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrickBlue@2x.png"; sourceTree = "<group>"; };
 		577504D118FFEA270010AC83 /* BBBrick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBrick.h; sourceTree = "<group>"; };
 		577504D218FFEA270010AC83 /* BBBrick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBrick.m; sourceTree = "<group>"; };
+		57B4DA9C19011BBF007373F1 /* BrickGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrickGrey@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		577504C318FE8B770010AC83 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				57B4DA9C19011BBF007373F1 /* BrickGrey@2x.png */,
 				577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */,
 				577504C418FE8B770010AC83 /* BallBlue@2x.png */,
 				577504C518FE8B770010AC83 /* BrickGreen@2x.png */,
@@ -270,6 +273,7 @@
 				5775049D18FE8B380010AC83 /* Main.storyboard in Resources */,
 				577504D018FFE9D80010AC83 /* BrickBlue@2x.png in Resources */,
 				577504C718FE8B770010AC83 /* BallBlue@2x.png in Resources */,
+				57B4DA9D19011BBF007373F1 /* BrickGrey@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +503,7 @@
 				577504BF18FE8B380010AC83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		577504C018FE8B380010AC83 /* Build configuration list for PBXNativeTarget "BrickBreakerTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +512,7 @@
 				577504C218FE8B380010AC83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
