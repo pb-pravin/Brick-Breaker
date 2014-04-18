@@ -16,6 +16,7 @@
     CGFloat _ballSpeed;
     SKNode *_brickLayer;
     BOOL _ballReleased;
+    int _currentLevel;
 }
 
 
@@ -41,10 +42,6 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _brickLayer.position = CGPointMake(0, self.size.height);
         [self addChild:_brickLayer];
         
-        // Load level.
-        [self loadLevel:1];
-        
-        
         _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
         _paddle.position = CGPointMake(self.size.width * 0.5, 90);
         _paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_paddle.size];
@@ -52,22 +49,37 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _paddle.physicsBody.categoryBitMask = kPaddleCategory;
         [self addChild:_paddle];
         
-        // Create positioning ball.
-        SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"BallBlue"];
-        ball.position = CGPointMake(0, _paddle.size.height);
-        [_paddle addChild:ball];
-        
         // Set initial values.
         _ballSpeed = 250.0;
         _ballReleased = NO;
+        _currentLevel = 0;
+        
+        [self loadLevel:_currentLevel];
+        [self newBall];
         
     }
     return self;
 }
 
+-(void)newBall
+{
+    [self enumerateChildNodesWithName:@"ball" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+    
+    // Create positioning ball.
+    SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"BallBlue"];
+    ball.position = CGPointMake(0, _paddle.size.height);
+    [_paddle addChild:ball];
+    _ballReleased = NO;
+    _paddle.position = CGPointMake(self.size.width * 0.5, _paddle.position.y);
+}
+
 
 -(void)loadLevel:(int)levelNumber
 {
+    [_brickLayer removeAllChildren];
+    
     NSArray *level = nil;
     
     switch (levelNumber) {
@@ -222,6 +234,13 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    
+    if ([self isLevelComplete]) {
+        _currentLevel++;
+        [self loadLevel:_currentLevel];
+        [self newBall];
+    }
+    
 }
 
 
