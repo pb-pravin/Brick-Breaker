@@ -18,6 +18,7 @@
     BOOL _ballReleased;
     BOOL _positionBall;
     int _currentLevel;
+    NSArray *_hearts;
 }
 
 
@@ -42,6 +43,17 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _brickLayer = [SKNode node];
         _brickLayer.position = CGPointMake(0, self.size.height);
         [self addChild:_brickLayer];
+        
+        // Setup hearts. 26x22
+        _hearts = @[[SKSpriteNode spriteNodeWithImageNamed:@"HeartFull"],
+                    [SKSpriteNode spriteNodeWithImageNamed:@"HeartFull"]];
+        
+        for (NSUInteger i = 0; i < _hearts.count; i++) {
+            SKSpriteNode *heart = (SKSpriteNode*)[_hearts objectAtIndex:i];
+            heart.position = CGPointMake(self.size.width - (16 + (29 * i)), self.size.height - 14);
+            [self addChild:heart];
+        }
+        
         
         _paddle = [SKSpriteNode spriteNodeWithImageNamed:@"Paddle"];
         _paddle.position = CGPointMake(self.size.width * 0.5, 90);

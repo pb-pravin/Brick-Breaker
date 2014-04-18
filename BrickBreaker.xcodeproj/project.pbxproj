@@ -29,6 +29,8 @@
 		577504D018FFE9D80010AC83 /* BrickBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */; };
 		577504D318FFEA270010AC83 /* BBBrick.m in Sources */ = {isa = PBXBuildFile; fileRef = 577504D218FFEA270010AC83 /* BBBrick.m */; };
 		57B4DA9D19011BBF007373F1 /* BrickGrey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B4DA9C19011BBF007373F1 /* BrickGrey@2x.png */; };
+		57B4DAA819014276007373F1 /* HeartEmpty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B4DAA619014276007373F1 /* HeartEmpty@2x.png */; };
+		57B4DAA919014276007373F1 /* HeartFull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B4DAA719014276007373F1 /* HeartFull@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		577504D118FFEA270010AC83 /* BBBrick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBrick.h; sourceTree = "<group>"; };
 		577504D218FFEA270010AC83 /* BBBrick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBrick.m; sourceTree = "<group>"; };
 		57B4DA9C19011BBF007373F1 /* BrickGrey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrickGrey@2x.png"; sourceTree = "<group>"; };
+		57B4DAA619014276007373F1 /* HeartEmpty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HeartEmpty@2x.png"; sourceTree = "<group>"; };
+		57B4DAA719014276007373F1 /* HeartFull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HeartFull@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 		577504C318FE8B770010AC83 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				57B4DAA619014276007373F1 /* HeartEmpty@2x.png */,
+				57B4DAA719014276007373F1 /* HeartFull@2x.png */,
 				57B4DA9C19011BBF007373F1 /* BrickGrey@2x.png */,
 				577504CF18FFE9D80010AC83 /* BrickBlue@2x.png */,
 				577504C418FE8B770010AC83 /* BallBlue@2x.png */,
@@ -266,10 +272,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B4DAA919014276007373F1 /* HeartFull@2x.png in Resources */,
 				577504C818FE8B770010AC83 /* BrickGreen@2x.png in Resources */,
 				5775049418FE8B380010AC83 /* InfoPlist.strings in Resources */,
 				577504C918FE8B770010AC83 /* Paddle@2x.png in Resources */,
 				577504A718FE8B380010AC83 /* Images.xcassets in Resources */,
+				57B4DAA819014276007373F1 /* HeartEmpty@2x.png in Resources */,
 				5775049D18FE8B380010AC83 /* Main.storyboard in Resources */,
 				577504D018FFE9D80010AC83 /* BrickBlue@2x.png in Resources */,
 				577504C718FE8B770010AC83 /* BallBlue@2x.png in Resources */,
