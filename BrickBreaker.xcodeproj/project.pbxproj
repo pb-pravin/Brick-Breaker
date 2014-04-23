@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		573C02B4190804E200F63968 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 573C02B2190804E200F63968 /* Button@2x.png */; };
+		573C02B5190804E200F63968 /* MenuPanel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 573C02B3190804E200F63968 /* MenuPanel@2x.png */; };
+		573C02B81908050C00F63968 /* BBMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 573C02B71908050C00F63968 /* BBMenu.m */; };
 		5775048818FE8B370010AC83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775048718FE8B370010AC83 /* Foundation.framework */; };
 		5775048A18FE8B370010AC83 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775048918FE8B370010AC83 /* CoreGraphics.framework */; };
 		5775048C18FE8B370010AC83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775048B18FE8B370010AC83 /* UIKit.framework */; };
@@ -46,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		573C02B2190804E200F63968 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
+		573C02B3190804E200F63968 /* MenuPanel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuPanel@2x.png"; sourceTree = "<group>"; };
+		573C02B61908050C00F63968 /* BBMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMenu.h; sourceTree = "<group>"; };
+		573C02B71908050C00F63968 /* BBMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMenu.m; sourceTree = "<group>"; };
 		5775048418FE8B370010AC83 /* BrickBreaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrickBreaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5775048718FE8B370010AC83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5775048918FE8B370010AC83 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +153,8 @@
 				5775049B18FE8B380010AC83 /* Main.storyboard */,
 				5775049E18FE8B380010AC83 /* BBViewController.h */,
 				5775049F18FE8B380010AC83 /* BBViewController.m */,
+				573C02B61908050C00F63968 /* BBMenu.h */,
+				573C02B71908050C00F63968 /* BBMenu.m */,
 				577504D118FFEA270010AC83 /* BBBrick.h */,
 				577504D218FFEA270010AC83 /* BBBrick.m */,
 				577504A118FE8B380010AC83 /* BBMyScene.h */,
@@ -190,6 +199,8 @@
 		577504C318FE8B770010AC83 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				573C02B2190804E200F63968 /* Button@2x.png */,
+				573C02B3190804E200F63968 /* MenuPanel@2x.png */,
 				57B4DAA619014276007373F1 /* HeartEmpty@2x.png */,
 				57B4DAA719014276007373F1 /* HeartFull@2x.png */,
 				57B4DA9C19011BBF007373F1 /* BrickGrey@2x.png */,
@@ -287,6 +298,8 @@
 				57B4DAA819014276007373F1 /* HeartEmpty@2x.png in Resources */,
 				5775049D18FE8B380010AC83 /* Main.storyboard in Resources */,
 				577504D018FFE9D80010AC83 /* BrickBlue@2x.png in Resources */,
+				573C02B4190804E200F63968 /* Button@2x.png in Resources */,
+				573C02B5190804E200F63968 /* MenuPanel@2x.png in Resources */,
 				57B4DAC81907F6F1007373F1 /* BrickExplosion.sks in Resources */,
 				577504C718FE8B770010AC83 /* BallBlue@2x.png in Resources */,
 				57B4DA9D19011BBF007373F1 /* BrickGrey@2x.png in Resources */,
@@ -312,6 +325,7 @@
 				5775049A18FE8B380010AC83 /* BBAppDelegate.m in Sources */,
 				577504A318FE8B380010AC83 /* BBMyScene.m in Sources */,
 				577504D318FFEA270010AC83 /* BBBrick.m in Sources */,
+				573C02B81908050C00F63968 /* BBMenu.m in Sources */,
 				5775049618FE8B380010AC83 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

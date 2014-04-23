@@ -8,6 +8,7 @@
 
 #import "BBMyScene.h"
 #import "BBBrick.h"
+#import "BBMenu.h"
 
 @interface BBMyScene()
 
@@ -26,6 +27,7 @@
     BOOL _positionBall;
     NSArray *_hearts;
     SKLabelNode *_levelDisplay;
+    BBMenu *_menu;
 }
 
 static const int kFinalLevelNumber = 3;
@@ -86,6 +88,12 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _paddle.physicsBody.dynamic = NO;
         _paddle.physicsBody.categoryBitMask = kPaddleCategory;
         [self addChild:_paddle];
+        
+        
+        // Setup menu.
+        _menu = [[BBMenu alloc] init];
+        _menu.position = CGPointMake(self.size.width * 0.5, self.size.height * 0.5);
+        [self addChild:_menu];
         
         // Set initial values.
         _ballSpeed = 250.0;
