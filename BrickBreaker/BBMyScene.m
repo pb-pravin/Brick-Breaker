@@ -79,7 +79,7 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         _ballSpeed = 250.0;
         _ballReleased = NO;
         _currentLevel = 0;
-        self.lives = 1;
+        self.lives = 2;
         
         [self loadLevel:_currentLevel];
         [self newBall];
@@ -276,12 +276,36 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     }
 }
 
+-(void)didSimulatePhysics {
+    [self enumerateChildNodesWithName:@"ball" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.frame.origin.y + node.frame.size.height < 0) {
+            // Lost ball.
+            [node removeFromParent];
+        }
+    }];
+    
+}
+
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     
     if ([self isLevelComplete]) {
         _currentLevel++;
+        if (_currentLevel > 2) {
+            _currentLevel = 0;
+            self.lives = 2;
+        }
         [self loadLevel:_currentLevel];
+        [self newBall];
+    } else if (_ballReleased && !_positionBall && ![self childNodeWithName:@"ball"]) {
+        // Lost all balls.
+        self.lives--;
+        if (self.lives < 0) {
+            self.lives = 2;
+            _currentLevel = 0;
+            [self loadLevel:_currentLevel];
+        }
         [self newBall];
     }
     
