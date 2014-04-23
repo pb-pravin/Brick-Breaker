@@ -11,7 +11,9 @@
 @implementation BBMenu
 {
     SKSpriteNode *_menuPanel;
+    SKLabelNode *_panelText;
     SKSpriteNode *_playButton;
+    SKLabelNode *_buttonText;
 }
 
 
@@ -24,10 +26,25 @@
         _menuPanel.position = CGPointZero;
         [self addChild:_menuPanel];
         
+        _panelText = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
+        _panelText.text = @"LEVEL 1";
+        _panelText.fontColor = [SKColor grayColor];
+        _panelText.fontSize = 15;
+        _panelText.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        [_menuPanel addChild:_panelText];
+        
         
         _playButton = [SKSpriteNode spriteNodeWithImageNamed:@"Button"];
         _playButton.position = CGPointMake(0, -((_menuPanel.size.height * 0.5) + (_playButton.size.height * 0.5) + 10));
         [self addChild:_playButton];
+        
+        _buttonText = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
+        _buttonText.text = @"PLAY";
+        _buttonText.position = CGPointMake(0, 2);
+        _buttonText.fontColor = [SKColor grayColor];
+        _buttonText.fontSize = 15;
+        _buttonText.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        [_playButton addChild:_buttonText];
         
     }
     return self;
