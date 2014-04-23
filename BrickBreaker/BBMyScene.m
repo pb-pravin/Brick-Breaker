@@ -43,12 +43,19 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         self.physicsWorld.contactDelegate = self;
         
         // Setup edge.
-        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, -128, size.width, size.height + 100)];
+        
+        // Add HUD bar.
+        SKSpriteNode *bar = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(size.width, 28)];
+        bar.position = CGPointMake(0, size.height);
+        bar.anchorPoint = CGPointMake(0, 1);
+        [self addChild:bar];
         
         // Setup brick layer.
         _brickLayer = [SKNode node];
-        _brickLayer.position = CGPointMake(0, self.size.height);
+        _brickLayer.position = CGPointMake(0, self.size.height - 28);
         [self addChild:_brickLayer];
+
         
         // Setup hearts. 26x22
         _hearts = @[[SKSpriteNode spriteNodeWithImageNamed:@"HeartFull"],
