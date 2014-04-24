@@ -322,6 +322,11 @@ static const uint32_t kEdgeCategory   = 0x1 << 2;
             CGFloat paddleMinX = -_paddle.size.width * 0.25;
             CGFloat paddleMaxX = self.size.width + (_paddle.size.width * 0.25);
             
+            if (_positionBall) {
+                paddleMinX = _paddle.size.width * 0.5;
+                paddleMaxX = self.size.width - (_paddle.size.width * 0.5);
+            }
+            
             // Cap paddle's position so it remains on screen.
             if (_paddle.position.x < paddleMinX) {
                 _paddle.position = CGPointMake(paddleMinX, _paddle.position.y);
