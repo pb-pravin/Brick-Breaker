@@ -35,10 +35,12 @@
         
         
         _playButton = [SKSpriteNode spriteNodeWithImageNamed:@"Button"];
+        _playButton.name = @"Play Button";
         _playButton.position = CGPointMake(0, -((_menuPanel.size.height * 0.5) + (_playButton.size.height * 0.5) + 10));
         [self addChild:_playButton];
         
         _buttonText = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
+        _buttonText.name = @"Play Button";
         _buttonText.text = @"PLAY";
         _buttonText.position = CGPointMake(0, 2);
         _buttonText.fontColor = [SKColor grayColor];
@@ -48,6 +50,12 @@
         
     }
     return self;
+}
+
+-(void)setLevelNumber:(int)levelNumber
+{
+    _levelNumber = levelNumber;
+    _panelText.text = [NSString stringWithFormat:@"LEVEL %d", levelNumber];
 }
 
 
