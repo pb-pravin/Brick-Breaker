@@ -39,7 +39,7 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        self.backgroundColor = [SKColor whiteColor];
 
         // Turn off gravity.
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0);
@@ -50,7 +50,7 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, -128, size.width, size.height + 100)];
         
         // Add HUD bar.
-        SKSpriteNode *bar = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(size.width, 28)];
+        SKSpriteNode *bar = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:0.831 green:0.831 blue:0.831 alpha:1.0] size:CGSizeMake(size.width, 28)];
         bar.position = CGPointMake(0, size.height);
         bar.anchorPoint = CGPointMake(0, 1);
         [self addChild:bar];
@@ -58,7 +58,7 @@ static const uint32_t kPaddleCategory = 0x1 << 1;
         // Setup level display.
         _levelDisplay = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
         _levelDisplay.text = @"LEVEL 1";
-        _levelDisplay.fontColor = [SKColor whiteColor];
+        _levelDisplay.fontColor = [SKColor grayColor];
         _levelDisplay.fontSize = 15;
         _levelDisplay.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
         _levelDisplay.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
